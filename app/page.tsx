@@ -1,3 +1,18 @@
+"use client"
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { 
+  Calculator, 
+  TrendingUp, 
+  Pill, 
+  Activity, 
+  Shield, 
+  ExternalLink,
+  Coins,        // ← doplněno
+  Newspaper    // ← přidáno pro veřejný feed
+} from "lucide-react"
+
 const tools = [
   {
     title: "Znát cenu per",
@@ -38,7 +53,7 @@ const tools = [
   {
     title: "Veřejný feed článků",
     description: "Zobrazí publikované články z Medical Digest",
-    icon: Activity, // můžeš vybrat jiný z lucide-react, třeba Newspaper
+    icon: Newspaper, // ← nová ikonka místo Activity
     href: "https://medical-digest-public.vercel.app/",
     color: "text-red-600"
   }
