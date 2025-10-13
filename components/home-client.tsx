@@ -10,6 +10,7 @@ import {
   Coins,
   Newspaper,
 } from "lucide-react";
+import va from "@vercel/analytics";
 
 const tools = [
   {
@@ -57,6 +58,10 @@ const tools = [
 ];
 
 export default function HomeClient() {
+  const handleClick = (toolTitle: string) => {
+    va.track(`Klik: ${toolTitle}`);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50" data-macaly="main-container">
       <div className="container mx-auto px-4 py-12">
@@ -92,12 +97,16 @@ export default function HomeClient() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white group-hover:bg-blue-700">
+                  <Button
+                    asChild
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white group-hover:bg-blue-700"
+                  >
                     <a
                       href={tool.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
+                      onClick={() => handleClick(tool.title)}
                     >
                       Otevřít nástroj
                       <ExternalLink className="w-4 h-4" />
