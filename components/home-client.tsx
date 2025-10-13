@@ -10,7 +10,7 @@ import {
   Coins,
   Newspaper,
 } from "lucide-react";
-import va from "@vercel/analytics";
+import { track } from "@vercel/analytics";
 
 const tools = [
   {
@@ -58,8 +58,9 @@ const tools = [
 ];
 
 export default function HomeClient() {
-  const handleClick = (toolTitle: string) => {
-    va.track(`Klik: ${toolTitle}`);
+  const handleClick = (toolTitle: string, href: string) => {
+    // Odeslat event (nečekáme na síť – nezablokuje klik)
+    track(`Klik: ${toolTitle}`, { href });
   };
 
   return (
@@ -106,7 +107,8 @@ export default function HomeClient() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
-                      onClick={() => handleClick(tool.title)}
+                      onClick={() => handleClick(tool.title, tool.href)}
+                      onAuxClick={() => handleClick(tool.title, tool.href)} // middle-click / ctrl+click
                     >
                       Otevřít nástroj
                       <ExternalLink className="w-4 h-4" />
