@@ -78,13 +78,14 @@ export default function HubPage() {
       </div>
 
       <main className="relative z-10 mx-auto max-w-6xl px-4 py-10 text-center">
+        {/* ✅ VŠE V JEDNOM “OKNĚ” */}
         <header className="mb-10 rounded-2xl border border-white/10 bg-slate-900/60 p-8 shadow-xl backdrop-blur">
-          <p className="text-sm text-slate-300 mb-2">📌 Rozcestník</p>
-
-          <h1 className="text-3xl font-semibold">Rozcestník pro skupinu</h1>
-          <h2 className="mt-2 text-2xl font-bold text-slate-100">
-            MunJaro pro jaro
-          </h2>
+          <h1 className="text-3xl font-semibold">
+            Rozcestník pro skupinu{" "}
+            <span className="font-bold text-slate-100">
+              Život s GLP-1 terapií
+            </span>
+          </h1>
 
           <p className="mt-4 text-sm text-slate-300 max-w-xl mx-auto">
             Všechny kalkulačky, přehledy a užitečné odkazy na jednom místě.
