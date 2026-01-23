@@ -16,6 +16,7 @@ import {
   ExternalLink,
   Coins,
   Newspaper,
+  Route,
 } from "lucide-react";
 import { track } from "@vercel/analytics";
 
@@ -62,6 +63,16 @@ const tools = [
     href: "https://medical-digest-public.vercel.app/",
     color: "text-red-600",
   },
+
+  // ✅ NOVINKA
+  {
+    title: "Mounjaro Path Tracker",
+    description: "Naplánuj a sleduj svou cestu krok za krokem",
+    icon: Route,
+    href: "https://mounjaro-path-tracker.vercel.app/",
+    color: "text-teal-600",
+    isNew: true,
+  },
 ];
 
 export default function HomeClient() {
@@ -106,12 +117,23 @@ export default function HomeClient() {
             return (
               <Card
                 key={index}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border-gray-200"
+                className="relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border-gray-200"
                 data-macaly={`tool-card-${index}`}
               >
+                {/* 🔥 BADGE NOVINKA */}
+                {tool.isNew && (
+                  <div className="absolute -top-3 -right-3 z-10">
+                    <span className="animate-pulse rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-3 py-1 text-xs font-bold text-white shadow-lg">
+                      NOVINKA
+                    </span>
+                  </div>
+                )}
+
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className={`p-2 rounded-lg bg-gray-100 ${tool.color}`}>
+                    <div
+                      className={`p-2 rounded-lg bg-gray-100 ${tool.color}`}
+                    >
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <CardTitle className="text-lg font-semibold text-gray-900">
@@ -134,7 +156,9 @@ export default function HomeClient() {
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
                       onClick={() => handleClick(tool.title, tool.href)}
-                      onAuxClick={() => handleClick(tool.title, tool.href)} // middle-click / ctrl+click
+                      onAuxClick={() =>
+                        handleClick(tool.title, tool.href)
+                      }
                     >
                       Otevřít nástroj
                       <ExternalLink className="w-4 h-4" />
