@@ -73,4 +73,40 @@ export default function HubPage() {
           </h1>
 
           <p className="mt-4 text-sm text-slate-300 max-w-xl mx-auto">
-            Všechny kalkulačky, přehledy a užitečné odkazy na jednom místě
+            Všechny kalkulačky, přehledy a užitečné odkazy na jednom místě.
+          </p>
+
+          <div className="mt-6 max-w-xl mx-auto">
+            <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-5">
+              <p className="font-semibold mb-3">
+                „⚠️ Houston, máme problém… ale řešení taky.“
+              </p>
+
+              <p className="text-sm text-slate-200/90">
+                Původní Facebooková skupina{" "}
+                <b>MunJaro pro jaro</b> byla zrušena.
+              </p>
+
+              <p className="mt-2 text-sm text-slate-200/90">
+                To ale neznamená konec — <b>fungujeme dál</b> 💪
+              </p>
+
+              <p className="mt-4 text-sm text-slate-200/90">
+                Tenhle rozcestník zůstává centrálním místem, kde najdeš:
+              </p>
+
+              <ul className="mt-3 space-y-1 text-sm text-slate-200/90">
+                <li>• kalkulačky a nástroje</li>
+                <li>• přehledy a články</li>
+                <li>• odkazy na nové projekty a aplikace</li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        {/* Skutečný rozcestník */}
+        <HomeClient />
+      </main>
+    </div>
+  );
+}
