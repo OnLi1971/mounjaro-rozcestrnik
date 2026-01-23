@@ -21,6 +21,16 @@ import {
 import { track } from "@vercel/analytics";
 
 const tools = [
+  // ⭐ NOVINKA – DÁNA NA PRVNÍ MÍSTO
+  {
+    title: "Mounjaro Path Tracker",
+    description: "Naplánuj a sleduj svou cestu krok za krokem",
+    icon: Route,
+    href: "https://mounjaro-path-tracker.vercel.app/",
+    color: "text-teal-600",
+    isNew: true,
+  },
+
   {
     title: "Znát cenu per",
     description: "Ceny per v CZ a okolních zemích",
@@ -63,16 +73,6 @@ const tools = [
     href: "https://medical-digest-public.vercel.app/",
     color: "text-red-600",
   },
-
-  // ✅ NOVINKA
-  {
-    title: "Mounjaro Path Tracker",
-    description: "Naplánuj a sleduj svou cestu krok za krokem",
-    icon: Route,
-    href: "https://mounjaro-path-tracker.vercel.app/",
-    color: "text-teal-600",
-    isNew: true,
-  },
 ];
 
 export default function HomeClient() {
@@ -80,33 +80,21 @@ export default function HomeClient() {
     const path =
       typeof window !== "undefined" ? window.location.pathname : "/";
     track("Page View", { path });
-    console.log("TRACK: Page View", { path });
   }, []);
 
   const handleClick = (toolTitle: string, href: string) => {
     track(`Klik: ${toolTitle}`, { href });
-    console.log("TRACK: Klik", { toolTitle, href });
   };
 
   return (
-    <div
-      className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50"
-      data-macaly="main-container"
-    >
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
-          <h1
-            className="text-4xl font-bold text-gray-900 mb-4"
-            data-macaly="main-title"
-          >
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Co potřebuješ?
           </h1>
-          <p
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-            data-macaly="subtitle"
-          >
-            Vyber si z užitečných nástrojů a kalkulaček pro Mounjaro a moderní
-            léčbu obezity.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Vyber si z užitečných nástrojů a kalkulaček pro GLP-1 terapii.
           </p>
         </div>
 
@@ -118,7 +106,6 @@ export default function HomeClient() {
               <Card
                 key={index}
                 className="relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border-gray-200"
-                data-macaly={`tool-card-${index}`}
               >
                 {/* 🔥 BADGE NOVINKA */}
                 {tool.isNew && (
@@ -148,15 +135,14 @@ export default function HomeClient() {
                 <CardContent className="pt-0">
                   <Button
                     asChild
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white group-hover:bg-blue-700"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                   >
                     <a
                       href={tool.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
-                      onClick={() => handleClick(tool.title, tool.href)}
-                      onAuxClick={() =>
+                      onClick={() =>
                         handleClick(tool.title, tool.href)
                       }
                     >
@@ -171,9 +157,9 @@ export default function HomeClient() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-500 text-sm" data-macaly="footer-text">
-            Všechny nástroje jsou zdarma k použití. Vždy se poraďte s lékařem
-            před změnou dávkování.
+          <p className="text-gray-500 text-sm">
+            Všechny nástroje jsou zdarma. Informace nenahrazují doporučení
+            lékaře.
           </p>
         </div>
       </div>
