@@ -40,22 +40,22 @@ export default function HubPage() {
 
   if (allowed === null) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-slate-100">
-        <p>Načítám…</p>
+      <div className="min-h-screen flex items-center justify-center bg-[hsl(0_0%_6%)] text-[hsl(0_0%_90%)]">
+        <p className="text-[hsl(0_0%_60%)]">Načítám…</p>
       </div>
     );
   }
 
   if (!allowed) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-slate-100">
-        <div className="max-w-md bg-slate-900/80 rounded-2xl p-6 shadow-xl text-center border border-white/10">
+      <div className="min-h-screen flex items-center justify-center bg-[hsl(0_0%_6%)] text-[hsl(0_0%_90%)] px-4">
+        <div className="w-full max-w-md rounded-2xl border border-[hsl(0_0%_18%)] bg-[hsl(0_0%_12%)]/70 p-6 shadow-xl backdrop-blur text-center">
           <h1 className="text-xl font-semibold mb-2">
             Přístup jen pro členy skupiny
           </h1>
-          <p className="text-sm text-slate-300">
-            Tento rozcestník je dostupný pouze přes speciální odkaz.
-            Požádej admina o aktuální link.
+          <p className="text-sm text-[hsl(0_0%_60%)]">
+            Tento rozcestník je dostupný pouze přes speciální odkaz. Požádej
+            admina o aktuální link.
           </p>
         </div>
       </div>
@@ -63,50 +63,25 @@ export default function HubPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
-      <main className="mx-auto max-w-6xl px-4 py-10 text-center">
-        {/* ✅ JEDNO CENTRÁLNÍ OKNO */}
-        <header className="mb-10 rounded-2xl border border-white/10 bg-slate-900/60 p-8 shadow-xl backdrop-blur">
-          <h1 className="text-3xl font-bold">
-            Rozcestník pro skupinu{" "}
-            <span className="text-slate-100">Život s GLP-1</span>
-          </h1>
+    <div className="min-h-screen bg-[hsl(0_0%_6%)] text-[hsl(0_0%_90%)]">
+      {/* HERO BACKDROP (neon gradient jako na Život s GLP-1) */}
+      <div className="relative overflow-hidden border-b border-[hsl(0_0%_18%)]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,hsl(270_90%_65%/0.20),transparent_55%),radial-gradient(circle_at_50%_32%,hsl(330_80%_60%/0.16),transparent_60%),radial-gradient(circle_at_82%_30%,hsl(186_80%_45%/0.16),transparent_55%)]" />
+        <div className="relative">
+          <main className="mx-auto max-w-6xl px-4 py-10 text-center">
+            {/* HEZKÁ KARTA S NADPISEM (GLP-1 styl) */}
+            <header className="mx-auto mb-10 max-w-3xl rounded-2xl border border-[hsl(0_0%_18%)] bg-[hsl(0_0%_12%)]/65 p-6 shadow-xl backdrop-blur">
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Rozcestník pro skupinu{" "}
+                <span className="text-[hsl(0_0%_90%)]">Život s GLP-1</span>
+              </h1>
+            </header>
 
-          <p className="mt-4 text-sm text-slate-300 max-w-xl mx-auto">
-            Všechny kalkulačky, přehledy a užitečné odkazy na jednom místě.
-          </p>
-
-          <div className="mt-6 max-w-xl mx-auto">
-            <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-5">
-              <p className="font-semibold mb-3">
-                „⚠️ Houston, máme problém… ale řešení taky.“
-              </p>
-
-              <p className="text-sm text-slate-200/90">
-                Původní Facebooková skupina{" "}
-                <b>MunJaro pro jaro</b> byla zrušena.
-              </p>
-
-              <p className="mt-2 text-sm text-slate-200/90">
-                To ale neznamená konec — <b>fungujeme dál</b> 💪
-              </p>
-
-              <p className="mt-4 text-sm text-slate-200/90">
-                Tenhle rozcestník zůstává centrálním místem, kde najdeš:
-              </p>
-
-              <ul className="mt-3 space-y-1 text-sm text-slate-200/90">
-                <li>• kalkulačky a nástroje</li>
-                <li>• přehledy a články</li>
-                <li>• odkazy na nové projekty a aplikace</li>
-              </ul>
-            </div>
-          </div>
-        </header>
-
-        {/* Skutečný rozcestník */}
-        <HomeClient />
-      </main>
+            {/* Rozcestník */}
+            <HomeClient />
+          </main>
+        </div>
+      </div>
     </div>
   );
 }
